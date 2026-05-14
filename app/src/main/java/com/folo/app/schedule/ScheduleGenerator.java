@@ -1,46 +1,70 @@
 package com.folo.app.schedule;
 
+import android.content.Context;
+import com.folo.app.data.AppDatabase;
 import com.folo.app.data.Schedule;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.concurrent.Executors;
 
 public class ScheduleGenerator {
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+    private final Context context;
+    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
-    public static List<Schedule> generateANC(int womanId, String lmpDate) {
-        List<Schedule> list = new ArrayList<>();
-        Calendar cal = Calendar.getInstance();
-        try { cal.setTime(sdf.parse(lmpDate)); } catch (Exception e) {}
-        int[] wks = {12, 20, 26, 32, 36, 38, 40};
-        String[] pur = {"ANC 1 - Baseline", "ANC 2 - Growth", "ANC 3 - Screening", "ANC 4 - Birth plan", "ANC 5 - Position", "ANC 6 - Final prep", "ANC 7 - Due date"};
-        for (int i = 0; i < wks.length; i++) {
-            Calendar c = (Calendar) cal.clone(); c.add(Calendar.WEEK_OF_YEAR, wks[i]);
-            Schedule s = new Schedule(); s.womanId = womanId; s.stage = "ANC";
-            s.scheduledDate = sdf.format(c.getTime()); s.purpose = pur[i];
-            s.completed = false; s.missed = false; list.add(s);
-        }
-        return list;
+    public ScheduleGenerator(Context context) {
+        this.context = context;
     }
 
-    public static List<Schedule> generateDelivery(int womanId, String edd) {
-        List<Schedule> list = new ArrayList<>();
-        Schedule s = new Schedule(); s.womanId = womanId; s.stage = "DELIVERY";
-        s.scheduledDate = edd; s.purpose = "Expected delivery"; s.completed = false; s.missed = false;
-        list.add(s); return list;
-    }
+    public void generateSchedules(int womanId, String edd, String lmp) {
+        Executors.newSingleThreadExecutor().execute(() -> {
+            try {
+                Calendar cal = Calendar.getInstance();
+                if (lmp != null) {
+                    cal.setTime(sdf.parse(lmp));
+                    // ANC visits at 12, 20, 26, 32, 36, 38, 40 weeks
+                    int[] ancWeeks = {12, 20, 26, 32, 36, 38, 40};
+                    for (int week : ancWeeks) {
+                        Calendar ancCal = (Calendar) cal.clone();
+                        ancCal.add(Calendar.WEEK_OF_YEAR, week);
+                        Schedule s = new Schedule();
+                        s.womanId = womanId;
+                        s.type = "ANC";
+                        s.scheduledDate = sdf.format(ancCal.getTime());
+                        s.description = "ANC Visit - Week " + week;
+                        s.completed = false;
+                        AppDatabase.getInstance(context).scheduleDao().insert(s);
+                    }
+                }
+                if (edd != null) {
+                    // Delivery on EDD
+                    Schedule del = new Schedule();
+                    del.womanId = womanId;
+                    del.type = "Delivery";
+                    del.scheduledDate = edd;
+                    del.description = "Expected Delivery Date";
+                    del.completed = false;
+                    AppDatabase.getInstance(context).scheduleDao().insert(del);
 
-    public static List<Schedule> generatePNC(int womanId, String deliveryDate) {
-        List<Schedule> list = new ArrayList<>();
-        Calendar cal = Calendar.getInstance();
-        try { cal.setTime(sdf.parse(deliveryDate)); } catch (Exception e) { return list; }
-        int[] days = {1, 3, 7, 14, 42};
-        String[] pur = {"PNC Day 1 - Immediate", "PNC Day 3 - Breastfeeding", "PNC Day 7 - Healing", "PNC Day 14 - Recovery", "PNC Day 42 - Final"};
-        for (int i = 0; i < days.length; i++) {
-            Calendar c = (Calendar) cal.clone(); c.add(Calendar.DAY_OF_YEAR, days[i]);
-            Schedule s = new Schedule(); s.womanId = womanId; s.stage = "PNC";
-            s.scheduledDate = sdf.format(c.getTime()); s.purpose = pur[i];
-            s.completed = false; s.missed = false; list.add(s);
-        }
-        return list;
+                    // PNC visits: Day 1, 3, 7, 14, 42
+                    Calendar eddCal = Calendar.getInstance();
+                    eddCal.setTime(sdf.parse(edd));
+                    int[] pncDays = {1, 3, 7, 14, 42};
+                    for (int day : pncDays) {
+                        Calendar pncCal = (Calendar) eddCal.clone();
+                        pncCal.add(Calendar.DAY_OF_YEAR, day);
+                        Schedule s = new Schedule();
+                        s.womanId = womanId;
+                        s.type = "PNC";
+                        s.scheduledDate = sdf.format(pncCal.getTime());
+                        s.description = "PNC Visit - Day " + day;
+                        s.completed = false;
+                        AppDatabase.getInstance(context).scheduleDao().insert(s);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

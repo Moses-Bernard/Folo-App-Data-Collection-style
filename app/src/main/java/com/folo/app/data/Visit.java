@@ -12,8 +12,7 @@ public class Visit {
     public int womanId;
     public String visitDate;
     public String notes;
-    public String nextVisitDate;
-    public String visitType;
+    public String nextVisit;
     public String recordedBy;
     public long recordedAt;
     public boolean synced;

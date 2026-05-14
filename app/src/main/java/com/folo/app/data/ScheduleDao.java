@@ -11,8 +11,8 @@ import java.util.List;
 public interface ScheduleDao {
     @Insert long insert(Schedule schedule);
     @Update void update(Schedule schedule);
-    @Query("SELECT * FROM schedules WHERE womanId = :womanId ORDER BY scheduledDate ASC")
+    @Query("SELECT * FROM schedules WHERE womanId = :womanId ORDER BY scheduledDate")
     LiveData<List<Schedule>> getSchedulesForWoman(int womanId);
-    @Query("SELECT * FROM schedules WHERE completed = 0 AND scheduledDate >= :today ORDER BY scheduledDate ASC")
-    LiveData<List<Schedule>> getUpcomingSchedules(String today);
+    @Query("SELECT * FROM schedules WHERE completed = 0 AND womanId = :womanId")
+    List<Schedule> getPendingSchedules(int womanId);
 }

@@ -29,6 +29,7 @@
     <string name="address">Address</string>
     <string name="dob">Date of Birth</string>
     <string name="edd">Expected Delivery Date</string>
+    <string name="lmp">Last Menstrual Period</string>
     <string name="gravida">Gravida</string>
     <string name="para">Para</string>
     <string name="blood_pressure">Blood Pressure</string>
@@ -40,4 +41,47 @@
     <string name="low_risk">Low Risk</string>
     <string name="sync_now">Sync Now</string>
     <string name="pending_sync">Pending Sync</string>
+    <string name="back">Back</string>
+    <string name="add_child">Add Child</string>
+    <string name="child_number">Child %d</string>
+    <string name="outcome">Outcome</string>
+    <string name="attendant_role">Attendant Role</string>
+    <string name="set_pin">Set PIN</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="confirm_pin">Confirm PIN</string>
+    <string name="pull_records">Pull Records from Server</string>
+
+    <!-- LGA List -->
+    <string-array name="lga_list">
+        <item>Akamkpa</item>
+        <item>Akpabuyo</item>
+        <item>Biase</item>
+        <item>Bakassi</item>
+        <item>Calabar Municipal</item>
+        <item>Calabar South</item>
+        <item>Odukpani</item>
+    </string-array>
+
+    <!-- Gender Options -->
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <!-- Delivery Outcome Options -->
+    <string-array name="delivery_outcome_options">
+        <item>Live birth</item>
+        <item>Stillbirth</item>
+        <item>Miscarriage</item>
+    </string-array>
+
+    <!-- Attendant Role Options -->
+    <string-array name="attendant_role_options">
+        <item>Doctor</item>
+        <item>Nurse</item>
+        <item>Midwife</item>
+        <item>CHW</item>
+        <item>Traditional Birth Attendant</item>
+        <item>Other</item>
+    </string-array>
 </resources>

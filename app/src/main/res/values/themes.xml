@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.FoloApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/mauve_primary</item>
-        <item name="colorPrimaryVariant">@color/mauve_dark</item>
+    <style name="Theme.FoloApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/orchid_primary</item>
+        <item name="colorPrimaryVariant">#8B4C8B</item>
         <item name="colorOnPrimary">@color/text_on_button</item>
-        <item name="colorSecondary">@color/orchid_primary</item>
-        <item name="colorSecondaryVariant">@color/orchid_light</item>
-        <item name="android:colorBackground">@color/bg_main</item>
-        <item name="colorSurface">@color/bg_card</item>
-        <item name="colorOnSurface">@color/text_primary</item>
-        <item name="android:statusBarColor">@color/mauve_dark</item>
+        <item name="colorSecondary">@color/purple_card</item>
+        <item name="android:statusBarColor">@color/orchid_primary</item>
+        <item name="android:windowBackground">@color/bg_main</item>
     </style>
 </resources>

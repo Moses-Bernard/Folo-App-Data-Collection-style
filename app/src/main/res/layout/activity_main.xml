@@ -2,118 +2,117 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main">
+    android:background="@drawable/bg_mauve_gradient"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/tvRole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Role: "
-            android:textSize="18sp"
-            android:textColor="@color/text_primary"
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_pregnant_woman"
             android:layout_marginBottom="16dp"/>
 
-        <GridLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Folo-App Dashboard"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:alignmentMode="alignMargins">
+            android:text="@string/register_woman"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Register Woman"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnWomanList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/woman_list"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnWomanList"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Woman List"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnGpsCapture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gps_capture"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnGpsCapture"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="GPS Capture"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnHealthCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/health_check"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnHealthCheck"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Health Check"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnSchedule"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Schedule"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delivery_record"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnDelivery"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Delivery"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnQuestions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/questions"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnQuestions"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Questions"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sync_center"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnSync"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Sync"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
+        <Button
+            android:id="@+id/btnExport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Export Data"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/btnSettings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:text="Settings"
-                android:background="@drawable/bg_purple_button"
-                android:textColor="@color/text_on_button"
-                android:layout_margin="4dp"/>
-        </GridLayout>
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"/>
     </LinearLayout>
 </ScrollView>

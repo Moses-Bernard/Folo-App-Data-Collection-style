@@ -7,11 +7,10 @@ import androidx.room.PrimaryKey;
 public class SyncQueueItem {
     @PrimaryKey(autoGenerate = true)
     public int id;
-    public String entityType;
-    public int entityId;
+    public String tableName;
+    public int recordId;
     public String operation;
     public String payload;
-    public long createdAt;
     public int retryCount;
-    public String status;
+    public long createdAt;
 }

@@ -10,11 +10,8 @@ public class Schedule {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public int womanId;
-    public String stage;
+    public String type;
     public String scheduledDate;
-    public String purpose;
+    public String description;
     public boolean completed;
-    public boolean missed;
-    public String completedDate;
-    public String notes;
 }

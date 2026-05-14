@@ -4,65 +4,80 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import androidx.core.app.ActivityCompat;
-import com.google.android.gms.location.*;
 
 public class GpsCaptureManager {
-    public static final float TARGET_ACCURACY = 5.0f;
-    public static final long UPDATE_INTERVAL = 1000;
-    private final FusedLocationProviderClient fusedClient;
-    private LocationCallback locationCallback;
-    private GpsListener listener;
-    private int countdown = 3;
+    private final Context context;
+    private final LocationManager locationManager;
+    private LocationListener listener;
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private Runnable countdownRunnable;
+    private static final float TARGET_ACCURACY = 5.0f;
+    private static final int COUNTDOWN_SECONDS = 3;
 
-    public interface GpsListener {
-        void onLocationUpdate(Location location, float accuracy, int countdown);
-        void onAccuracyReached(Location location);
-        void onError(String error);
+    public interface GpsCallback {
+        void onCaptured(double latitude, double longitude, float accuracy);
     }
 
     public GpsCaptureManager(Context context) {
-        fusedClient = LocationServices.getFusedLocationProviderClient(context);
+        this.context = context;
+        this.locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
     }
 
-    public void startCapture(Context context, GpsListener listener) {
-        this.listener = listener;
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+    public void startCapture(GpsCallback callback) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) 
                 != PackageManager.PERMISSION_GRANTED) {
-            listener.onError("Location permission not granted");
             return;
         }
-        LocationRequest request = new LocationRequest.Builder(
-            Priority.PRIORITY_HIGH_ACCURACY, UPDATE_INTERVAL)
-            .setWaitForAccurateLocation(true).setMinUpdateIntervalMillis(500).build();
 
-        countdown = 3;
-        locationCallback = new LocationCallback() {
+        listener = new LocationListener() {
             @Override
-            public void onLocationResult(LocationResult result) {
-                if (result == null) return;
-                Location location = result.getLastLocation();
-                if (location == null) return;
+            public void onLocationChanged(Location location) {
                 float accuracy = location.getAccuracy();
-
                 if (accuracy <= TARGET_ACCURACY) {
-                    countdown--;
-                    if (countdown <= 0) {
-                        listener.onAccuracyReached(location);
-                        stopCapture();
-                        return;
-                    }
-                } else {
-                    countdown = 3;
+                    startCountdown(location, callback);
                 }
-                listener.onLocationUpdate(location, accuracy, Math.max(0, countdown));
             }
+            @Override public void onStatusChanged(String provider, int status, Bundle extras) {}
+            @Override public void onProviderEnabled(String provider) {}
+            @Override public void onProviderDisabled(String provider) {}
         };
-        fusedClient.requestLocationUpdates(request, locationCallback, Looper.getMainLooper());
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, listener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 0, listener);
     }
 
-    public void stopCapture() {
-        if (locationCallback != null) fusedClient.removeLocationUpdates(locationCallback);
+    private void startCountdown(Location location, GpsCallback callback) {
+        if (countdownRunnable != null) return;
+        final int[] seconds = {COUNTDOWN_SECONDS};
+        countdownRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (seconds[0] > 0) {
+                    seconds[0]--;
+                    handler.postDelayed(this, 1000);
+                } else {
+                    callback.onCaptured(location.getLatitude(), location.getLongitude(), location.getAccuracy());
+                    stop();
+                }
+            }
+        };
+        handler.post(countdownRunnable);
+    }
+
+    public void stop() {
+        if (listener != null) {
+            locationManager.removeUpdates(listener);
+            listener = null;
+        }
+        if (countdownRunnable != null) {
+            handler.removeCallbacks(countdownRunnable);
+            countdownRunnable = null;
+        }
     }
 }

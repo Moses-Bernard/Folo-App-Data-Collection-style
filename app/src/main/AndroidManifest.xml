@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.folo.app">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,19 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoloApp">
 
-        <activity android:name=".LoginActivity"
-            android:exported="true">
+        <activity android:name=".LoginActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".SetPinActivity" android:parentActivityName=".LoginActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".WomanListActivity" />
         <activity android:name=".WomanDetailActivity" />
-        <activity android:name=".EditWomanActivity" />
-        <activity android:name=".RegistrationActivity" />
         <activity android:name=".GpsCaptureActivity" />
         <activity android:name=".HealthCheckActivity" />
         <activity android:name=".ScheduleActivity" />
@@ -34,7 +35,7 @@
         <activity android:name=".EditDeliveryActivity" />
         <activity android:name=".SyncCenterActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".QuestionModuleActivity" />
-
+        <activity android:name=".QuestionsActivity" />
+        <activity android:name=".ExportActivity" />
     </application>
 </manifest>
