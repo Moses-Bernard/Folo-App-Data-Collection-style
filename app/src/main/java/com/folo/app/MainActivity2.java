@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.folo.app.role.Role;
 import com.folo.app.role.RoleManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
     private RoleManager roleManager;
     private Button btnRegister, btnWomanList, btnGpsCapture, btnHealthCheck, 
                    btnSchedule, btnDelivery, btnSync, btnSettings, btnQuestions, btnExport;
@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private void applyPermissions() {
         Role role = roleManager.getCurrentRole();
 
-        btnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity.class)));
-        btnWomanList.setOnClickListener(v -> startActivity(new Intent(this, WomanListActivity.class)));
-        btnGpsCapture.setOnClickListener(v -> startActivity(new Intent(this, GpsCaptureActivity.class)));
-        btnHealthCheck.setOnClickListener(v -> startActivity(new Intent(this, HealthCheckActivity.class)));
+        btnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegistrationActivity2.class)));
+        btnWomanList.setOnClickListener(v -> startActivity(new Intent(this, WomanListActivity2.class)));
+        btnGpsCapture.setOnClickListener(v -> startActivity(new Intent(this, GpsCaptureActivity2.class)));
+        btnHealthCheck.setOnClickListener(v -> startActivity(new Intent(this, HealthCheckActivity2.class)));
         btnSchedule.setOnClickListener(v -> startActivity(new Intent(this, ScheduleActivity.class)));
         btnDelivery.setOnClickListener(v -> startActivity(new Intent(this, DeliveryRecordActivity.class)));
-        btnSync.setOnClickListener(v -> startActivity(new Intent(this, SyncCenterActivity.class)));
+        btnSync.setOnClickListener(v -> startActivity(new Intent(this, SyncCenterActivity2.class)));
         btnSettings.setOnClickListener(v -> startActivity(new Intent(this, SettingsActivity.class)));
         btnQuestions.setOnClickListener(v -> startActivity(new Intent(this, QuestionsActivity.class)));
         btnExport.setOnClickListener(v -> startActivity(new Intent(this, ExportActivity.class)));
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             roleManager.clear();
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity2.class));
             finish();
             return true;
         }

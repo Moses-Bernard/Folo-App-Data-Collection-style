@@ -108,9 +108,9 @@ public class ExportActivity extends AppCompatActivity {
         writer.write("ID,Full Name,Phone,Address,Landmark,Area,LGA,DOB,LMP,EDD,Gravida,Para,Latitude,Longitude,Accuracy,Risk Level,Recorded By\n");
         for (Woman w : women) {
             writer.write(String.format("%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",%d,%d,%.6f,%.6f,%.1f,\"%s\",\"%s\"\n",
-                    w.id, w.fullName, w.phone, w.address, w.landmark, w.area, w.lga,
-                    w.dob, w.lmp, w.edd, w.gravida, w.para, w.latitude, w.longitude,
-                    w.accuracy, w.riskLevel, w.recordedBy));
+                w.id, w.fullName, w.phone, w.address, w.landmark, w.area, w.lga,
+                w.dob, w.lmp, w.edd, w.gravida, w.para, w.latitude, w.longitude,
+                w.accuracy, w.riskLevel, w.recordedBy));
         }
         writer.close();
         runOnUiThread(() -> Toast.makeText(this, "Exported to: " + file.getAbsolutePath(), Toast.LENGTH_LONG).show());

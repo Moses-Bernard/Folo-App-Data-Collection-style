@@ -71,13 +71,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void completeLogin() {
         roleManager.setRole(selectedRole, selectedRole.getDisplayName() + "_User");
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, MainActivity2.class));
         finish();
     }
 
     private void showSetPinDialog() {
         selectedRole = Role.fromString(spinnerRole.getSelectedItem().toString());
-        startActivity(new Intent(this, SetPinActivity.class)
+        startActivity(new Intent(this, SetPinActivity2.class)
             .putExtra("role", selectedRole.name()));
     }
 

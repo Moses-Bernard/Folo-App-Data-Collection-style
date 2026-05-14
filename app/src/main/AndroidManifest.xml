@@ -16,24 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoloApp">
 
-        <activity android:name=".LoginActivity" android:exported="true">
+        <activity android:name=".LoginActivity2" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SetPinActivity" android:parentActivityName=".LoginActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".WomanListActivity" />
-        <activity android:name=".WomanDetailActivity" />
-        <activity android:name=".GpsCaptureActivity" />
-        <activity android:name=".HealthCheckActivity" />
+        <activity android:name=".SetPinActivity2" android:parentActivityName=".LoginActivity2" />
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".RegistrationActivity2" />
+        <activity android:name=".WomanListActivity2" />
+        <activity android:name=".WomanDetailActivity2" />
+        <activity android:name=".GpsCaptureActivity2" />
+        <activity android:name=".HealthCheckActivity2" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".DeliveryRecordActivity" />
         <activity android:name=".EditDeliveryActivity" />
-        <activity android:name=".SyncCenterActivity" />
+        <activity android:name=".SyncCenterActivity2" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".QuestionsActivity" />
         <activity android:name=".ExportActivity" />

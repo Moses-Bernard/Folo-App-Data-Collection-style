@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import com.folo.app.gps.GpsCaptureManager;
 
-public class GpsCaptureActivity extends AppCompatActivity {
+public class GpsCaptureActivity2 extends AppCompatActivity {
     private TextView tvStatus;
     private Button btnStart, btnNavigate;
     private GpsCaptureManager gps;
@@ -42,7 +42,7 @@ public class GpsCaptureActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_REQUEST);
             return;
         }
 
@@ -56,10 +56,10 @@ public class GpsCaptureActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     if (countdown > 0) {
                         tvStatus.setText(String.format("Hold steady... %ds", countdown));
-                        tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity.this, R.color.low_risk));
+                        tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity2.this, R.color.low_risk));
                     } else if (countdown == -1) {
                         tvStatus.setText(String.format("Improving... %.1fm", acc));
-                        tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity.this, R.color.orchid_primary));
+                        tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity2.this, R.color.orchid_primary));
                     }
                 });
             }
@@ -69,7 +69,7 @@ public class GpsCaptureActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     captured = loc;
                     tvStatus.setText(String.format("GPS LOCKED (%.1fm)", loc.getAccuracy()));
-                    tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity.this, R.color.low_risk));
+                    tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity2.this, R.color.low_risk));
                     btnStart.setEnabled(true);
                     btnStart.setText("Recapture");
                     btnNavigate.setEnabled(true);
@@ -80,7 +80,7 @@ public class GpsCaptureActivity extends AppCompatActivity {
             public void onError(String err) {
                 runOnUiThread(() -> {
                     tvStatus.setText("Error: " + err);
-                    tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity.this, R.color.high_risk));
+                    tvStatus.setTextColor(ContextCompat.getColor(GpsCaptureActivity2.this, R.color.high_risk));
                     btnStart.setEnabled(true);
                 });
             }

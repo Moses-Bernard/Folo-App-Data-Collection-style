@@ -8,9 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.folo.app.data.AppDatabase;
 import com.folo.app.data.HealthRecord;
 import com.folo.app.role.RoleManager;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class HealthCheckActivity extends AppCompatActivity {
     private int womanId;

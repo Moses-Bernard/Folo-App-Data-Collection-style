@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.folo.app.role.Role;
 import com.folo.app.role.RoleManager;
 
-public class SetPinActivity extends AppCompatActivity {
+public class SetPinActivity2 extends AppCompatActivity {
     private EditText etPin, etConfirmPin;
     private Button btnSavePin;
     private TextView tvRoleName;

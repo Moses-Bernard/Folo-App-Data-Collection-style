@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity2 extends AppCompatActivity {
     private EditText etName, etPhone, etAddress, etLandmark, etArea, etGravida, etPara;
     private Spinner spinnerLga;
     private TextView tvDob, tvLmp, tvEdd, tvGpsStatus;

@@ -8,11 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.folo.app.data.AppDatabase;
 import com.folo.app.data.HealthRecord;
 import com.folo.app.role.RoleManager;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
-public class HealthCheckActivity extends AppCompatActivity {
+public class HealthCheckActivity2 extends AppCompatActivity {
     private int womanId;
     private EditText etBp, etWeight, etSymptoms, etConditions;
     private Button btnSave;

@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
+
 import com.folo.app.data.AppDatabase;
 import com.folo.app.data.DeliveryChildRecord;
 import com.folo.app.data.DeliveryRecord;
@@ -75,7 +75,7 @@ public class EditDeliveryActivity extends AppCompatActivity {
 
     private void setupAttendantSpinner() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.attendant_role_options, android.R.layout.simple_spinner_item);
+            R.array.attendant_role_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAttendantRole.setAdapter(adapter);
     }
@@ -135,12 +135,12 @@ public class EditDeliveryActivity extends AppCompatActivity {
         tvChildNum.setText(String.format(getString(R.string.child_number), childCount));
 
         ArrayAdapter<CharSequence> outcomeAdapter = ArrayAdapter.createFromResource(this,
-                R.array.delivery_outcome_options, android.R.layout.simple_spinner_item);
+            R.array.delivery_outcome_options, android.R.layout.simple_spinner_item);
         outcomeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOutcome.setAdapter(outcomeAdapter);
 
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this,
-                R.array.gender_options, android.R.layout.simple_spinner_item);
+            R.array.gender_options, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGender.setAdapter(genderAdapter);
 
