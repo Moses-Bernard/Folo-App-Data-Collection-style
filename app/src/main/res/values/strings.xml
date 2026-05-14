@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Folo-App</string>
+    <string name="login">Login</string>
+    <string name="select_role">Select Role</string>
+    <string name="admin">Admin</string>
+    <string name="surveillance_officer">Surveillance Officer</string>
+    <string name="supervisor">Supervisor</string>
+    <string name="register_woman">Register Woman</string>
+    <string name="woman_list">Woman List</string>
+    <string name="gps_capture">GPS Capture</string>
+    <string name="health_check">Health Check</string>
+    <string name="schedule">Schedule</string>
+    <string name="delivery_record">Delivery Record</string>
+    <string name="sync_center">Sync Center</string>
+    <string name="settings">Settings</string>
+    <string name="questions">Maternal Questions</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="navigate">Navigate</string>
+    <string name="capture_gps">Capture GPS</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="dob">Date of Birth</string>
+    <string name="edd">Expected Delivery Date</string>
+    <string name="gravida">Gravida</string>
+    <string name="para">Para</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="next_visit">Next Visit Date</string>
+    <string name="risk_level">Risk Level</string>
+    <string name="high_risk">High Risk</string>
+    <string name="low_risk">Low Risk</string>
+    <string name="sync_now">Sync Now</string>
+    <string name="pending_sync">Pending Sync</string>
+</resources>

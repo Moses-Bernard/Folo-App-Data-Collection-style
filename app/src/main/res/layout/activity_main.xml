@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role: "
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="16dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins">
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Register Woman"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnWomanList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Woman List"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnGpsCapture"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="GPS Capture"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnHealthCheck"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Health Check"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnSchedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Schedule"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnDelivery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Delivery"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnQuestions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Questions"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnSync"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Sync"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:text="Settings"
+                android:background="@drawable/bg_purple_button"
+                android:textColor="@color/text_on_button"
+                android:layout_margin="4dp"/>
+        </GridLayout>
+    </LinearLayout>
+</ScrollView>

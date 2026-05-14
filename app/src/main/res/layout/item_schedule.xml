@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_orchid_card"
+    android:padding="12dp"
+    android:layout_margin="4dp">
+
+    <TextView
+        android:id="@+id/tvScheduleDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"/>
+
+    <TextView
+        android:id="@+id/tvSchedulePurpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Purpose"
+        android:textColor="@color/text_secondary"/>
+
+    <TextView
+        android:id="@+id/tvScheduleStage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stage"
+        android:textColor="@color/text_secondary"/>
+
+    <TextView
+        android:id="@+id/tvScheduleStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textStyle="bold"/>
+</LinearLayout>

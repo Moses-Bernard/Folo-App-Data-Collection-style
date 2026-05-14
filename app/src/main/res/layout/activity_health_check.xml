@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/bg_main">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health Check"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etBp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Blood Pressure (e.g. 120/80)"
+        android:background="@drawable/bg_purple_edittext"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"/>
+
+    <EditText
+        android:id="@+id/etWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Weight (kg)"
+        android:inputType="numberDecimal"
+        android:background="@drawable/bg_purple_edittext"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"/>
+
+    <EditText
+        android:id="@+id/etSymptoms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Symptoms"
+        android:background="@drawable/bg_purple_edittext"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"/>
+
+    <EditText
+        android:id="@+id/etConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Conditions"
+        android:background="@drawable/bg_purple_edittext"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"/>
+
+    <Button
+        android:id="@+id/btnSaveHealth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Health Record"
+        android:background="@drawable/bg_purple_button"
+        android:textColor="@color/text_on_button"/>
+</LinearLayout>
