@@ -131,7 +131,7 @@ public class RegistrationActivity extends AppCompatActivity {
             etName.setError("Name is required");
             return;
         }
-        if (phone.length() != 11 || !phone.matches("\d{11}")) {
+        if (phone.length() != 11 || !phone.matches("\\d{11}")) {
             etPhone.setError("Enter valid 11-digit phone number");
             return;
         }

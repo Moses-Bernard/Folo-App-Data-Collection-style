@@ -28,13 +28,14 @@ public class HealthCheckActivity extends AppCompatActivity {
 
     private void save() {
         HealthRecord h = new HealthRecord();
-        h.womanId = womanId; h.checkDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        h.womanId = womanId;
         h.bloodPressure = etBp.getText().toString().trim();
         h.weightKg = parseDouble(etWeight);
         h.symptoms = etSymptoms.getText().toString().trim();
         h.conditions = etConditions.getText().toString().trim();
-        h.checkedBy = new RoleManager(this).getCurrentRole().getDisplayName();
-        h.checkedAt = System.currentTimeMillis(); h.synced = false;
+        h.recordedBy = new RoleManager(this).getCurrentUser();
+        h.recordedAt = System.currentTimeMillis();
+        h.synced = false;
 
         new Thread(() -> {
             AppDatabase.getInstance(this).healthRecordDao().insert(h);

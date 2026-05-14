@@ -3,8 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/bg_main">
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@drawable/bg_mauve_gradient">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:background="@drawable/bg_purple_button"
+        android:textColor="@color/text_on_button"
+        android:layout_gravity="start"
+        android:layout_marginBottom="32dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,120 +24,33 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
-        android:layout_marginBottom="16dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Latitude:"
-            android:textColor="@color/text_secondary"/>
-
-        <TextView
-            android:id="@+id/tvLatitude"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="--"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Longitude:"
-            android:textColor="@color/text_secondary"/>
-
-        <TextView
-            android:id="@+id/tvLongitude"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="--"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Accuracy:"
-            android:textColor="@color/text_secondary"/>
-
-        <TextView
-            android:id="@+id/tvAccuracy"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="--"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"/>
-    </LinearLayout>
+        android:layout_marginBottom="24dp"/>
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tap Start to begin"
+        android:text="Tap Start to capture GPS"
         android:textSize="18sp"
         android:textColor="@color/text_secondary"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/tvCountdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="16sp"
-        android:textColor="@color/orchid_primary"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start GPS"
+        android:text="Start GPS Capture"
         android:background="@drawable/bg_purple_button"
         android:textColor="@color/text_on_button"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Location"
-        android:background="@drawable/bg_purple_button"
-        android:textColor="@color/text_on_button"
-        android:enabled="false"
-        android:layout_marginBottom="8dp"/>
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnNavigate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Navigate"
+        android:text="Navigate to Location"
         android:background="@drawable/bg_purple_button"
         android:textColor="@color/text_on_button"
-        android:enabled="false"/>
+        android:padding="16dp"/>
 </LinearLayout>

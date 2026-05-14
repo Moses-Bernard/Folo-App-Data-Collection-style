@@ -2,28 +2,45 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main">
+    android:background="@color/bg_main"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvWomanId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Woman ID:"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Record Delivery"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:text="Delivery Date *"
             android:textColor="@color/text_primary"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="4dp"/>
 
         <EditText
-            android:id="@+id/etDelDate"
+            android:id="@+id/etDeliveryDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Delivery Date (YYYY-MM-DD)"
+            android:hint="Tap to pick date"
+            android:focusable="false"
             android:background="@drawable/bg_purple_edittext"
             android:padding="12dp"
             android:layout_marginBottom="8dp"
@@ -31,55 +48,36 @@
             android:textColorHint="@color/text_hint"/>
 
         <EditText
-            android:id="@+id/etDelPlace"
+            android:id="@+id/etDeliveryPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Delivery Place"
+            android:hint="Delivery Place *"
             android:background="@drawable/bg_purple_edittext"
             android:padding="12dp"
             android:layout_marginBottom="8dp"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_hint"/>
 
-        <EditText
-            android:id="@+id/etDelOutcome"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Outcome (Live birth/Stillbirth/Miscarriage)"
-            android:background="@drawable/bg_purple_edittext"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"
+            android:text="Attendant Role"
             android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_hint"/>
+            android:layout_marginBottom="4dp"/>
 
-        <EditText
-            android:id="@+id/etBabyGender"
+        <Spinner
+            android:id="@+id/spinnerAttendantRole"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Baby Gender"
             android:background="@drawable/bg_purple_edittext"
             android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_hint"/>
-
-        <EditText
-            android:id="@+id/etBabyWeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Baby Weight (kg)"
-            android:inputType="numberDecimal"
-            android:background="@drawable/bg_purple_edittext"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_hint"/>
+            android:layout_marginBottom="8dp"/>
 
         <EditText
             android:id="@+id/etComplications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Complications"
+            android:hint="Complications (if any)"
             android:background="@drawable/bg_purple_edittext"
             android:padding="12dp"
             android:layout_marginBottom="8dp"
@@ -87,21 +85,46 @@
             android:textColorHint="@color/text_hint"/>
 
         <EditText
-            android:id="@+id/etAttendant"
+            android:id="@+id/etNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Attendant Name"
+            android:hint="Notes"
             android:background="@drawable/bg_purple_edittext"
             android:padding="12dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_hint"/>
 
-        <Button
-            android:id="@+id/btnSaveDelivery"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Children Born"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/layoutChildren"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Delivery Record"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnAddChild"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_child"
+            android:background="@drawable/bg_purple_button"
+            android:textColor="@color/text_on_button"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
             android:background="@drawable/bg_purple_button"
             android:textColor="@color/text_on_button"/>
     </LinearLayout>
