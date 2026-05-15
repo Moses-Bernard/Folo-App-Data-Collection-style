@@ -4,15 +4,13 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
 import androidx.core.app.ActivityCompat;
+import com.google.android.gms.location.*;
 
 public class GpsCaptureManager {
     public static final float TARGET_ACCURACY = 5.0f;
+<<<<<<< HEAD
     private static final int COUNTDOWN_SECONDS = 3;
 
     private final Context context;
@@ -26,13 +24,25 @@ public class GpsCaptureManager {
         void onLocationUpdate(Location loc, float acc, int countdown);
         void onAccuracyReached(Location loc);
         void onError(String err);
+=======
+    public static final long UPDATE_INTERVAL = 1000;
+    private final FusedLocationProviderClient fusedClient;
+    private LocationCallback locationCallback;
+    private GpsListener listener;
+    private int countdown = 3;
+
+    public interface GpsListener {
+        void onLocationUpdate(Location location, float accuracy, int countdown);
+        void onAccuracyReached(Location location);
+        void onError(String error);
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
     }
 
     public GpsCaptureManager(Context context) {
-        this.context = context;
-        this.locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        fusedClient = LocationServices.getFusedLocationProviderClient(context);
     }
 
+<<<<<<< HEAD
     public void startCapture(Context ctx, GpsListener callback) {
         this.gpsListener = callback;
 
@@ -41,14 +51,30 @@ public class GpsCaptureManager {
             if (gpsListener != null) {
                 gpsListener.onError("Location permission not granted");
             }
+=======
+    public void startCapture(Context context, GpsListener listener) {
+        this.listener = listener;
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            listener.onError("Location permission not granted");
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
             return;
         }
+        LocationRequest request = new LocationRequest.Builder(
+            Priority.PRIORITY_HIGH_ACCURACY, UPDATE_INTERVAL)
+            .setWaitForAccurateLocation(true).setMinUpdateIntervalMillis(500).build();
 
-        listener = new LocationListener() {
+        countdown = 3;
+        locationCallback = new LocationCallback() {
             @Override
-            public void onLocationChanged(Location location) {
+            public void onLocationResult(LocationResult result) {
+                if (result == null) return;
+                Location location = result.getLastLocation();
+                if (location == null) return;
                 float accuracy = location.getAccuracy();
+
                 if (accuracy <= TARGET_ACCURACY) {
+<<<<<<< HEAD
                     startCountdown(location);
                 } else {
                     if (gpsListener != null) {
@@ -86,13 +112,25 @@ public class GpsCaptureManager {
                         gpsListener.onAccuracyReached(location);
                     }
                     stopCapture();
+=======
+                    countdown--;
+                    if (countdown <= 0) {
+                        listener.onAccuracyReached(location);
+                        stopCapture();
+                        return;
+                    }
+                } else {
+                    countdown = 3;
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
                 }
+                listener.onLocationUpdate(location, accuracy, Math.max(0, countdown));
             }
         };
-        handler.post(countdownRunnable);
+        fusedClient.requestLocationUpdates(request, locationCallback, Looper.getMainLooper());
     }
 
     public void stopCapture() {
+<<<<<<< HEAD
         if (listener != null) {
             locationManager.removeUpdates(listener);
             listener = null;
@@ -101,5 +139,8 @@ public class GpsCaptureManager {
             handler.removeCallbacks(countdownRunnable);
             countdownRunnable = null;
         }
+=======
+        if (locationCallback != null) fusedClient.removeLocationUpdates(locationCallback);
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
     }
 }

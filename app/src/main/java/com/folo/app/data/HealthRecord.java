@@ -10,11 +10,12 @@ public class HealthRecord {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public int womanId;
+    public String checkDate;
     public String bloodPressure;
     public double weightKg;
     public String symptoms;
     public String conditions;
-    public String recordedBy;
-    public long recordedAt;
+    public String checkedBy;
+    public long checkedAt;
     public boolean synced;
 }

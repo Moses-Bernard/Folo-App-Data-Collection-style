@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.folo.app">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,13 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoloApp">
 
+<<<<<<< HEAD
         <activity android:name=".LoginActivity2" android:exported="true">
+=======
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity android:name=".SetPinActivity2" android:parentActivityName=".LoginActivity2" />
         <activity android:name=".MainActivity2" />
         <activity android:name=".RegistrationActivity2" />
@@ -30,12 +34,21 @@
         <activity android:name=".WomanDetailActivity2" />
         <activity android:name=".GpsCaptureActivity2" />
         <activity android:name=".HealthCheckActivity2" />
+=======
+        <activity android:name=".MainActivity" />
+        <activity android:name=".WomanListActivity" />
+        <activity android:name=".WomanDetailActivity" />
+        <activity android:name=".EditWomanActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".GpsCaptureActivity" />
+        <activity android:name=".HealthCheckActivity" />
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".DeliveryRecordActivity" />
         <activity android:name=".EditDeliveryActivity" />
         <activity android:name=".SyncCenterActivity2" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".QuestionsActivity" />
-        <activity android:name=".ExportActivity" />
+        <activity android:name=".QuestionModuleActivity" />
+
     </application>
 </manifest>

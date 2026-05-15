@@ -12,8 +12,11 @@ public class DeliveryRecord {
     public int womanId;
     public String deliveryDate;
     public String deliveryPlace;
+    public String deliveryOutcome;
+    public String babyGender;
+    public double babyWeightKg;
     public String complications;
-    public String attendantRole;
+    public String attendantName;
     public String notes;
     public String recordedBy;
     public long recordedAt;

@@ -2,58 +2,23 @@ package com.folo.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.folo.app.role.Role;
 import com.folo.app.role.RoleManager;
 
 public class LoginActivity extends AppCompatActivity {
-    private Spinner spinnerRole;
-    private LinearLayout layoutPin;
-    private EditText etPin;
-    private Button btnLogin, btnSetPin;
-    private TextView tvPinLabel;
-    private RoleManager roleManager;
-    private Role selectedRole;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        roleManager = new RoleManager(this);
-        spinnerRole = findViewById(R.id.spinnerRole);
-        layoutPin = findViewById(R.id.layoutPin);
-        etPin = findViewById(R.id.etPin);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSetPin = findViewById(R.id.btnSetPin);
-        tvPinLabel = findViewById(R.id.tvPinLabel);
-
-        String[] roles = {Role.ADMIN.getDisplayName(),
-                         Role.SURVEILLANCE_OFFICER.getDisplayName(),
-                         Role.SUPERVISOR.getDisplayName()};
-        spinnerRole.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, roles));
-
-        btnLogin.setOnClickListener(v -> attemptLogin());
-        btnSetPin.setOnClickListener(v -> showSetPinDialog());
-
-        updatePinVisibility();
-    }
-
-    private void attemptLogin() {
-        selectedRole = Role.fromString(spinnerRole.getSelectedItem().toString());
-
-        if (!roleManager.hasPin(selectedRole)) {
-            completeLogin();
-            return;
+        RoleManager rm = new RoleManager(this);
+        if (!rm.getCurrentUser().equals("Unknown")) {
+            startActivity(new Intent(this, MainActivity.class)); finish(); return;
         }
+<<<<<<< HEAD
 
         String pin = etPin.getText().toString().trim();
         if (pin.isEmpty()) {
@@ -93,5 +58,16 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         updatePinVisibility();
+=======
+        Spinner sp = findViewById(R.id.spinnerRole);
+        Button btn = findViewById(R.id.btnLogin);
+        String[] roles = {Role.ADMIN.getDisplayName(), Role.SURVEILLANCE_OFFICER.getDisplayName(), Role.SUPERVISOR.getDisplayName()};
+        sp.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, roles));
+        btn.setOnClickListener(v -> {
+            Role r = Role.fromString(sp.getSelectedItem().toString());
+            rm.setRole(r, r.getDisplayName() + "_User");
+            startActivity(new Intent(this, MainActivity.class)); finish();
+        });
+>>>>>>> parent of 82e8864 (feat: Add PIN-based login, multi-birth delivery, registration with LGA/LMP/EDD, export feature)
     }
 }

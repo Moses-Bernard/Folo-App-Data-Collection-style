@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_main">#E8D0E8</color>
+    <!-- Light Mauve & Light Orchid Purple Theme -->
+    <color name="mauve_primary">#B784A7</color>
+    <color name="mauve_dark">#8B5A7C</color>
+    <color name="mauve_light">#D4A5C9</color>
     <color name="orchid_primary">#DA70D6</color>
-    <color name="text_primary">#4A154B</color>
-    <color name="text_secondary">#6B3A6B</color>
-    <color name="text_hint">#9B6B9B</color>
+    <color name="orchid_light">#E6A8E6</color>
+    <color name="orchid_pale">#F0D4F0</color>
+
+    <!-- Backgrounds - NO WHITE -->
+    <color name="bg_main">#F5E6F5</color>
+    <color name="bg_card">#EAD0EA</color>
+    <color name="bg_edittext">#D8B8D8</color>
+    <color name="bg_button">#B784A7</color>
+
+    <!-- Text -->
+    <color name="text_primary">#4A2C4A</color>
+    <color name="text_secondary">#6B3D6B</color>
     <color name="text_on_button">#FFFFFF</color>
-    <color name="purple_card">#EAD0EA</color>
-    <color name="purple_light">#D8B8D8</color>
-    <color name="mauve_start">#D4A5C9</color>
-    <color name="high_risk">#C0392B</color>
-    <color name="low_risk">#27AE60</color>
+    <color name="text_hint">#8B5A8B</color>
+
+    <!-- Status -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="danger_red">#F44336</color>
+
+    <color name="purple_200">#CE93D8</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
 </resources>

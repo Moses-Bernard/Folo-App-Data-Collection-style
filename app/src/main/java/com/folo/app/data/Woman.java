@@ -14,18 +14,17 @@ public class Woman {
     public String area;
     public String lga;
     public String dob;
-    public String lmp;
     public String edd;
     public int gravida;
     public int para;
     public double latitude;
     public double longitude;
     public float accuracy;
-    public long gpsTimestamp;
-    public String recordedBy;
-    public long recordedAt;
+    public String gpsTimestamp;
+    public String riskLevel;
+    public String registeredBy;
+    public long registeredAt;
     public boolean synced;
     public long lastModified;
     public String modifiedBy;
-    public String riskLevel;
 }

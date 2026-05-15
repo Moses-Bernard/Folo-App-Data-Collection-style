@@ -44,52 +44,13 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_purple_edittext"
         android:padding="16dp"
-        android:layout_marginBottom="16dp"/>
-
-    <TextView
-        android:id="@+id/tvPinLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter PIN:"
-        android:textColor="@color/text_primary"
-        android:layout_marginBottom="8dp"/>
-
-    <LinearLayout
-        android:id="@+id/layoutPin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/etPin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="PIN"
-            android:inputType="numberPassword"
-            android:maxLength="6"
-            android:background="@drawable/bg_purple_edittext"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_hint"/>
-    </LinearLayout>
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:background="@drawable/bg_purple_button"
-        android:textColor="@color/text_on_button"
-        android:padding="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <Button
-        android:id="@+id/btnSetPin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/set_pin"
         android:background="@drawable/bg_purple_button"
         android:textColor="@color/text_on_button"
         android:padding="16dp"/>
